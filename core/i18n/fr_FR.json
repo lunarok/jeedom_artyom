@@ -1,0 +1,30 @@
+{
+    "plugins\/artyom\/desktop\/php\/artyom.php": {
+        "Ajouter un équipement": "Ajouter un équipement",
+        "Rechercher": "Rechercher",
+        "Artyom": "Artyom",
+        "Général": "Général",
+        "Nom": "Nom",
+        "Nom de l'équipement Vigilances Météo": "Nom de l'équipement Vigilances Météo",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Catégorie": "Catégorie",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "Commentaire": "Commentaire",
+        "Configuration": "Configuration",
+        "Mot clef déclencheur": "Mot clef déclencheur",
+        "Mot de fin de phrase": "Mot de fin de phrase",
+        "Action": "Action",
+        "Options": "Options",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder"
+    },
+    "plugins\/artyom\/desktop\/js\/artyom.js": {
+        "Tester": "Tester"
+    },
+    "plugins\/artyom\/core\/class\/artyom.class.php": {
+        "HTTPS": "HTTPS",
+        "OK": "OK"
+    }
+}

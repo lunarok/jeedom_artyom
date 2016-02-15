@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>artyom</id>
+    <name>Artyom</name>
+    <licence>AGPL</licence>
+    <author>lunarok</author>
+    <require>2.0</require>
+    <category>communication</category>
+</info>

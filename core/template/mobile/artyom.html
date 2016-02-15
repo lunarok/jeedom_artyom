@@ -1,0 +1,60 @@
+<script src="plugins/artyom/desktop/js/artyom.min.js"></script>
+
+
+ <script>
+  // on charge les commandes en premier
+(function(window){'use strict';
+
+    var artyomCommands = [
+        {
+
+            description: "Pronunciate all that i say after <b>Pronunciate</b>",
+            indexes: ["#keyword# *"],
+            smart:true,
+            action : function(i,wildcard,sentence){
+                //artyom.say("j'ai compris " + wildcard);
+                console.log( "#jeedom#&type=interact&query=" + wildcard);
+                $.get( "#jeedom#&type=interact&query=" + wildcard, function( data ) {
+                          artyom.say(data);
+                          //$('#artyom_answer').text(data);
+                });
+         }
+        }
+    ];
+    //Updated to artyom v 0.6
+    artyom.addCommands(artyomCommands);
+})(window);
+
+</script>
+
+<script>
+
+// on ajoute les fonctions que le veux utiliser
+
+function StartArtyomTemp(){
+ artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+
+ artyom.initialize({
+     lang:"fr",
+     continuous:true,// recognize 1 command and stop listening !
+     listen:true,//Otherwise we will save only the configuration but don't start artyom.
+     debug:false,
+     mode:"normal",
+     executionKeyword:"#keyend#",
+     speed:1
+ });
+
+}
+
+function execArtyom(txtAction){
+artyom.simulateInstruction(txtAction);
+}
+</script>
+
+<div class="eqLogic-widget eqLogic" style="background-color: #background_color#; padding : 0px; #style#" data-eqLogic_id="#id#" data-version="mobile" >
+  <center> #name# </center>
+  <center><i class="fa fa-microphone"></i></center><br/>
+
+  </div>
+
+<script>StartArtyomTemp()</script>
