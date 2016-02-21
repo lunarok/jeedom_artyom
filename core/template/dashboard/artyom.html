@@ -58,31 +58,22 @@ artyom.simulateInstruction(txtAction);
 </script>
 
 
-<div class="eqLogic-widget eqLogic allowResize artyompower" style="min-height:100px; min-width:200px; height: #height#;width: #width#;background-color: #background_color#; padding : 0px; #style#" data-eqLogic_id="#id#" data-version="dashboard" >
+<div class="eqLogic-widget eqLogic allowResize artyompower" style="min-height:100px; min-width:200px; height: #height#;width: #width#;background-color: #background_color#; padding:5px; #style#" data-eqLogic_id="#id#" data-version="dashboard" >
 
-<div class="row">
-    <center><strong><a href="#eqLink#" style="size : 1.3em;"> #name#  </a></strong><br />
-    <i class="fa fa-microphone fa-3x" id="artyom_mic"></i></center><br/>
+   <div class="row">
+       <center><strong><a href="#eqLink#" style="size : 1.3em;"> #name#  </a></strong><br />
+      <i class="fa fa-microphone fa-3x" id="artyom_mic"></i></center><br/>
+   </div>
+
+    <div style="padding:5px">Demande : <br/>
+      <marquee id="artyom_ask" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
+    <div style="padding:5px">Réponse : <br />
+      <marquee id="artyom_answer" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
+   <div class="row"><center>
+        <button  class="button" id="artyom_play" style="color:white"><i class="fa fa-play fa-2x" style="color:black"></i></button>  -
+      <button class="button" id="artyom_stop" style="color:white"><i class="fa fa-pause fa-2x" style="color:black"></i></button>
+    </center></div>
 </div>
-<div class="row">
-  <center>
-    <div style="padding:5px">Demande : </div>
-    <marquee id="artyom_ask" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee>
-  </center>
-</div>
-<div class="row">
-  <center>
-    <div style="padding:5px">Réponse : </div>
-    <marquee id="artyom_answer" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee>
-  </center>
-</div>
-<div class="row">
-  <center>
-  	<button  class="button" id="artyom_play" style="color:white"><i class="fa fa-play" style="color:black"></i></button>  -
-	  <button class="button" id="artyom_stop" style="color:white"><i class="fa fa-pause" style="color:black"></i></button>
-  </center>
-</div>
-  </div>
 
 <script>
   var span = document.getElementById("artyom_mic");
