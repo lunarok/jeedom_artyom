@@ -3,28 +3,44 @@
 
  <script>
   // on charge les commandes en premier
-(function(window){'use strict';
+  (function(window){'use strict';
 
-    var artyomCommands = [
-        {
+  var jeedomurl = "";
+  var apikeytemp = "#jeedom#";
+  apikey = apikeytemp.slice(apikeytemp.indexOf("api=")+4);
+  if(window.location.href.indexOf("jeedom.com") > -1) {
+    jeedomurl = window.location.href.slice(0,window.location.href.indexOf("jeedom.com")) + "jeedom.com/core/api/jeeApi.php?api=" + apikey;
+  } else {
+    jeedomurl = "#jeedom#";
+  };
 
-            description: "Pronunciate all that i say after <b>Pronunciate</b>",
-            indexes: ["#keyword# *"],
-            smart:true,
-            action : function(i,wildcard,sentence){
-                //artyom.say("j'ai compris " + wildcard);
-                console.log( "#jeedom#&type=interact&query=" + wildcard);
-                $.get( "#jeedom#&type=interact&query=" + wildcard, function( data ) {
-                          artyom.say(data);
-                          //$('#artyom_answer').text(data);
-                });
-         }
-        }
-    ];
-    //Updated to artyom v 0.6
-    artyom.addCommands(artyomCommands);
-})(window);
+  var artyomCommands = [
+    {
 
+      description: "Pronunciate all that i say after <b>Pronunciate</b>",
+      indexes: ["#keyword# * #keyend#"],
+      smart:true,
+      action : function(i,wildcard,sentence){
+        $("#artyom_ask").text(wildcard);
+
+        console.log( jeedomurl + "&type=interact&query=" + wildcard);
+        console.log("#jeedom#");
+
+        $.get( jeedomurl + "&type=interact&query=" + wildcard, function( data ) {
+          artyom.say(data);
+          $("#artyom_answer").text(data);
+        });
+      }
+    }
+  ];
+  //Updated to artyom v 0.6
+  artyom.addCommands(artyomCommands);
+  })(window);
+
+  $('body').on('artyom::stackData', function (_event,param) {
+    //var _cmd = JSON.parse(param);
+    artyom.say(param);
+  });
 </script>
 
 <script>
@@ -32,22 +48,22 @@
 // on ajoute les fonctions que le veux utiliser
 
 function StartArtyomTemp(){
- artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+  artyom.fatality();// Stop any previous Artyom Instance to prevent any error
 
- artyom.initialize({
-     lang:"fr",
-     continuous:true,// recognize 1 command and stop listening !
-     listen:true,//Otherwise we will save only the configuration but don't start artyom.
-     debug:false,
-     mode:"normal",
-     executionKeyword:"#keyend#",
-     speed:1
- });
+  artyom.initialize({
+    lang:"#lang#",
+    continuous:#continuous#,// recognize 1 command and stop listening !
+    listen:true,//Otherwise we will save only the configuration but don't start artyom.
+    debug:false,
+    mode:"normal",
+    executionKeyword:"#keyend#",
+    speed:1
+  });
 
 }
 
 function execArtyom(txtAction){
-artyom.simulateInstruction(txtAction);
+  artyom.simulateInstruction(txtAction);
 }
 </script>
 

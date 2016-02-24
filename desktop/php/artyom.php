@@ -130,6 +130,16 @@ $eqLogics = eqLogic::byType('artyom');
           </div>
     </div>
 
+    <div class="form-group">
+                          <label class="col-md-2 control-label">{{Ecoute continue}}</label>
+                          <div class="col-md-3">
+                            <select class="form-control eqLogicAttr configuration" data-l1key="configuration" data-l2key="continuous">
+                              <option value="true">{{Oui}}</option>
+                              <option value="false">{{Non}}</option>
+                            </select>
+                          </div>
+                        </div>
+
                   </fieldset>
                 </form>
             </div>

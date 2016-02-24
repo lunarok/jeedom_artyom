@@ -132,12 +132,16 @@ class artyom extends eqLogic {
           $url = config::byKey('internalProtocol') . config::byKey('internalAddr'). ':' . config::byKey('internalPort') . config::byKey('internalComplement') . '/core/api/jeeApi.php?api=' . config::byKey('api');
         }
 
+        $lang = explode('_',config::byKey('language'));
+
         $replace = array(
             		'#name#' => $this->getName(),
                 	'#id#' => $this->getId(),
                   '#keyend#' => $this->getConfiguration('keyend'),
                   '#keyword#' => $this->getConfiguration('keyword'),
                   '#jeedom#' => $url,
+                  '#lang#' => $lang[0],
+                  '#continuous#' => $this->getConfiguration('continuous'),
                 	'#background_color#' => $this->getBackgroundColor(jeedom::versionAlias($_version)),
                 	'#eqLink#' => ($this->hasRight('w')) ? $this->getLinkToConfiguration() : '#',
             	);

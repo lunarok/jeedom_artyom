@@ -1,34 +1,46 @@
 <script src="plugins/artyom/desktop/js/artyom.min.js"></script>
 
 
- <script>
-  // on charge les commandes en premier
+<script>
+// on charge les commandes en premier
 (function(window){'use strict';
 
-    var artyomCommands = [
-        {
+var jeedomurl = "";
+var apikeytemp = "#jeedom#";
+apikey = apikeytemp.slice(apikeytemp.indexOf("api=")+4);
+if(window.location.href.indexOf("jeedom.com") > -1) {
+  jeedomurl = window.location.href.slice(0,window.location.href.indexOf("jeedom.com")) + "jeedom.com/core/api/jeeApi.php?api=" + apikey;
+} else {
+  jeedomurl = "#jeedom#";
+};
 
-            description: "Pronunciate all that i say after <b>Pronunciate</b>",
-            indexes: ["#keyword# *"],
-            smart:true,
-            action : function(i,wildcard,sentence){
-                $("#artyom_ask").text(wildcard);
-                console.log( "#jeedom#&type=interact&query=" + wildcard);
-                $.get( "#jeedom#&type=interact&query=" + wildcard, function( data ) {
-                          artyom.say(data);
-                          $("#artyom_answer").text(data);
-                });
-         }
-        }
-    ];
-    //Updated to artyom v 0.6
-    artyom.addCommands(artyomCommands);
+var artyomCommands = [
+  {
+
+    description: "Pronunciate all that i say after <b>Pronunciate</b>",
+    indexes: ["#keyword# * #keyend#"],
+    smart:true,
+    action : function(i,wildcard,sentence){
+      $("#artyom_ask").text(wildcard);
+
+      console.log( jeedomurl + "&type=interact&query=" + wildcard);
+      console.log("#jeedom#");
+
+      $.get( jeedomurl + "&type=interact&query=" + wildcard, function( data ) {
+        artyom.say(data);
+        $("#artyom_answer").text(data);
+      });
+    }
+  }
+];
+//Updated to artyom v 0.6
+artyom.addCommands(artyomCommands);
 })(window);
 
 $('body').on('artyom::stackData', function (_event,param) {
-       //var _cmd = JSON.parse(param);
-       artyom.say(param);
-   });
+  //var _cmd = JSON.parse(param);
+  artyom.say(param);
+});
 </script>
 
 <script>
@@ -36,22 +48,22 @@ $('body').on('artyom::stackData', function (_event,param) {
 // on ajoute les fonctions que le veux utiliser
 
 function StartArtyomTemp(){
- artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+  artyom.fatality();// Stop any previous Artyom Instance to prevent any error
 
- artyom.initialize({
-     lang:"fr",
-     continuous:true,// recognize 1 command and stop listening !
-     listen:true,//Otherwise we will save only the configuration but don't start artyom.
-     debug:false,
-     mode:"normal",
-     executionKeyword:"#keyend#",
-     speed:1
- });
+  artyom.initialize({
+    lang:"#lang#",
+    continuous:#continuous#,// recognize 1 command and stop listening !
+    listen:true,//Otherwise we will save only the configuration but don't start artyom.
+    debug:false,
+    mode:"normal",
+    executionKeyword:"#keyend#",
+    speed:1
+  });
 
 }
 
 function execArtyom(txtAction){
-artyom.simulateInstruction(txtAction);
+  artyom.simulateInstruction(txtAction);
 }
 
 
@@ -60,57 +72,57 @@ artyom.simulateInstruction(txtAction);
 
 <div class="eqLogic-widget eqLogic allowResize artyompower" style="min-height:100px; min-width:200px; height: #height#;width: #width#;background-color: #background_color#; padding:5px; #style#" data-eqLogic_id="#id#" data-version="dashboard" >
 
-   <div class="row">
-       <center><strong><a href="#eqLink#" style="size : 1.3em;"> #name#  </a></strong><br />
+  <div class="row">
+    <center><strong><a href="#eqLink#" style="size : 1.3em;"> #name#  </a></strong><br />
       <i class="fa fa-microphone fa-3x" id="artyom_mic"></i></center><br/>
-   </div>
+    </div>
 
     <div style="padding:5px">Demande : <br/>
       <marquee id="artyom_ask" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
-    <div style="padding:5px">Réponse : <br />
-      <marquee id="artyom_answer" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
-   <div class="row"><center>
-        <button  class="button" id="artyom_play" style="color:white"><i class="fa fa-play fa-2x" style="color:black"></i></button>  -
-      <button class="button" id="artyom_stop" style="color:white"><i class="fa fa-pause fa-2x" style="color:black"></i></button>
-    </center></div>
-</div>
+      <div style="padding:5px">Réponse : <br />
+        <marquee id="artyom_answer" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
+        <div class="row"><center>
+          <button  class="button" id="artyom_play" style="color:white"><i class="fa fa-play fa-2x" style="color:black"></i></button>  -
+          <button class="button" id="artyom_stop" style="color:white"><i class="fa fa-pause fa-2x" style="color:black"></i></button>
+        </center></div>
+      </div>
 
-<script>
-  var span = document.getElementById("artyom_mic");
+      <script>
+      var span = document.getElementById("artyom_mic");
 
-// the example makes a span green when something is recognized and red when the user don't talk
+      // the example makes a span green when something is recognized and red when the user don't talk
 
-artyom.when("Recognition",function(obj){
-    span.style.color = "green";
-    console.log(obj);
-});
+      artyom.when("Recognition",function(obj){
+        span.style.color = "green";
+        console.log(obj);
+      });
 
-artyom.when("FinishRecognition",function(obj){
-    span.style.color = "white";
-    console.log(obj);
-});
+      artyom.when("FinishRecognition",function(obj){
+        span.style.color = "white";
+        console.log(obj);
+      });
 
-  StartArtyomTemp();
-
-
+      StartArtyomTemp();
 
 
-artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
+
+
+      artyom.redirectRecognizedTextOutput(function(recognized,isFinal){
         $("#artyom_ask").text(recognized);
 
-});
+      });
 
-$('.artyom_play').on('click',function(){
-  $('.artyom_mic').removeClass('fa-microphone-slash'); // Hides the minus sign on click
-  $('.artyom_mic').addClass('fa-microphone');
-  StartArtyomTemp();
-});
+      $('.artyom_play').on('click',function(){
+        $('.artyom_mic').removeClass('fa-microphone-slash'); // Hides the minus sign on click
+        $('.artyom_mic').addClass('fa-microphone');
+        StartArtyomTemp();
+      });
 
-$('.artyom_stop').on('click',function(){
-  $('.artyom_mic').removeClass('fa-microphone'); // Hides the minus sign on click
-  $('.artyom_mic').addClass('fa-microphone-slash');
-  StartArtyomTemp();
-});
+      $('.artyom_stop').on('click',function(){
+        $('.artyom_mic').removeClass('fa-microphone'); // Hides the minus sign on click
+        $('.artyom_mic').addClass('fa-microphone-slash');
+        StartArtyomTemp();
+      });
 
 
-</script>
+      </script>
