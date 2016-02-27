@@ -5,14 +5,11 @@
   // on charge les commandes en premier
   (function(window){'use strict';
 
-  var jeedomurl = "";
-  var apikeytemp = "#jeedom#";
-  apikey = apikeytemp.slice(apikeytemp.indexOf("api=")+4);
-  if(window.location.href.indexOf("jeedom.com") > -1) {
-    jeedomurl = window.location.href.slice(0,window.location.href.indexOf("jeedom.com")) + "jeedom.com/core/api/jeeApi.php?api=" + apikey;
-  } else {
-    jeedomurl = "#jeedom#";
-  };
+var jeedomurl  =  "#jeedom#";
+var apikey = jeedomurl.slice(jeedomurl.indexOf("api=")+4);                
+if(window.location.href.indexOf("jeedom.com") > -1) {
+       jeedomurl = window.location.href.slice(0,window.location.href.indexOf("jeedom.com")) + "jeedom.com/core/api/jeeApi.php?api=" + apikey;
+ };
 
   var artyomCommands = [
     {
