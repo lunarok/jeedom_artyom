@@ -3,7 +3,7 @@
     <id>artyom</id>
     <name>Artyom</name>
     <licence>AGPL</licence>
-    <author>lunarok</author>
+    <author>lunarok,oliviusdm</author>
     <require>2.0</require>
     <category>communication</category>
 </info>
