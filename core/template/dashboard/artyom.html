@@ -6,16 +6,21 @@
 (function(window){'use strict';
 
 var jeedomurl  =  "#jeedom#";
-var apikey = jeedomurl.slice(jeedomurl.indexOf("api=")+4);                
+var apikey = jeedomurl.slice(jeedomurl.indexOf("api=")+4);
  if(window.location.href.indexOf("jeedom.com") > -1) {
        jeedomurl = window.location.href.slice(0,window.location.href.indexOf("jeedom.com")) + "jeedom.com/core/api/jeeApi.php?api=" + apikey;
  };
+
+var wordin = "#keyword# *";
+if(artyom.device.isMobile){
+  wordin = "#keyword# * #keyend#";
+}
 
 var artyomCommands = [
   {
 
     description: "Pronunciate all that i say after <b>Pronunciate</b>",
-    indexes: ["#keyword# * #keyend#"],
+    indexes: [wordin],
     smart:true,
     action : function(i,wildcard,sentence){
       $("#artyom_ask").text(wildcard);
@@ -31,12 +36,16 @@ var artyomCommands = [
   }
 ];
 //Updated to artyom v 0.6
-artyom.addCommands(artyomCommands);
+if(artyom.device.isChrome){
+  artyom.addCommands(artyomCommands);
+}
 })(window);
 
 $('body').on('artyom::stackData', function (_event,param) {
   //var _cmd = JSON.parse(param);
-  artyom.say(param);
+  if(artyom.device.isChrome){
+    artyom.say(param);
+  }
 });
 </script>
 
@@ -45,22 +54,26 @@ $('body').on('artyom::stackData', function (_event,param) {
 // on ajoute les fonctions que le veux utiliser
 
 function StartArtyomTemp(){
-  artyom.fatality();// Stop any previous Artyom Instance to prevent any error
+  if(artyom.device.isChrome){
+    artyom.fatality();// Stop any previous Artyom Instance to prevent any error
 
-  artyom.initialize({
-    lang:"#lang#",
-    continuous:#continuous#,// recognize 1 command and stop listening !
-    listen:true,//Otherwise we will save only the configuration but don't start artyom.
-    debug:false,
-    mode:"normal",
-    executionKeyword:"#keyend#",
-    speed:1
-  });
+    artyom.initialize({
+      lang:"#lang#",
+      continuous:#continuous#,// recognize 1 command and stop listening !
+      listen:true,//Otherwise we will save only the configuration but don't start artyom.
+      debug:false,
+      mode:"normal",
+      executionKeyword:"#keyend#",
+      speed:1
+    });
+  }
 
 }
 
 function execArtyom(txtAction){
-  artyom.simulateInstruction(txtAction);
+  if(artyom.device.isChrome){
+    artyom.simulateInstruction(txtAction);
+  }
 }
 
 
