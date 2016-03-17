@@ -4,6 +4,6 @@
     <name>Artyom</name>
     <licence>AGPL</licence>
     <author>lunarok,oliviusdm</author>
-    <require>2.0</require>
+    <require>2.2.4</require>
     <category>communication</category>
 </info>

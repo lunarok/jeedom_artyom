@@ -80,13 +80,11 @@ function execArtyom(txtAction){
 </script>
 
 
-<div class="eqLogic-widget eqLogic allowResize artyompower" style="min-height:100px; min-width:200px; height: #height#;width: #width#;background-color: #background_color#; padding:5px; #style#" data-eqLogic_id="#id#" data-version="dashboard" >
+  <div class="eqLogic-widget eqLogic allowResize" style="min-height:100px; min-width:200px; height: #height#;width: #width#;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="dashboard" >
+        <center><a href="#eqLink#" style="font-size : 1.5em;#hideEqLogicName#">#name_display#</a></strong></center>
+      <center><i class="fa fa-microphone fa-3x" id="artyom_mic"></i></center>
 
-  <div class="row">
-    <center><strong><a href="#eqLink#" style="size : 1.3em;"> #name#  </a></strong><br />
-      <i class="fa fa-microphone fa-3x" id="artyom_mic"></i></center><br/>
-    </div>
-
+<center>
     <div style="padding:5px">Demande : <br/>
       <marquee id="artyom_ask" onmouseout="this.start();" onmouseover="this.stop();" loop="infinite" scrolldelay="30" scrollamount="5" direction="left" behavior="slide"></marquee></div>
       <div style="padding:5px">Réponse : <br />
