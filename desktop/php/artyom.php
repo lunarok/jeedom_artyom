@@ -108,7 +108,7 @@ $eqLogics = eqLogic::byType('artyom');
             </div>
 
             <div class="form-group">
-              <label class="col-sm-2 control-label">{{Commentaire}}</label>
+              <label class="col-sm-3 control-label">{{Commentaire}}</label>
               <div class="col-sm-3">
                 <textarea class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="commentaire" ></textarea>
               </div>
@@ -140,8 +140,9 @@ $eqLogics = eqLogic::byType('artyom');
             </div>
 
           </fieldset>
-        </form>
-      </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="commandtab">
 
 
       <table id="table_cmd" class="table table-bordered table-condensed">
