@@ -101,7 +101,7 @@ class artyom extends eqLogic {
     $replace['#lang#'] = $lang[0];
     $replace['#continuous#'] = $this->getConfiguration('continuous');
 
-    return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'artyom')));
+    return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'artyom', 'artyom')));
   }
 
 }
