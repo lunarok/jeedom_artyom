@@ -1,5 +1,5 @@
-==== Configuration du plugin
+==== The plugin configuration
 
-Le plugin n'a pas de configuration générale
+The plugin does not have general configuration.
 
-Il faut créer un équipement qui servira à placer le widget où l'on souhaite sur le dashboard mais aussi à paramétrer le mot clef déclencheur et la langue
+It is necessary to create a device that will be used to place the widget where you want on the dashboard but also to set the trigger keyword and the language
