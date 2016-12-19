@@ -1,7 +1,7 @@
-==== Artyom, assistant vocal HTML5
+==== Artyom, HTML5 Sprachassistent
 
-Ce plugin permet d'intégrer Artyom sur le dashboard Jeedom et donc la reconnaissance vocale sur les pages web Jeedom
+Dieses Plugin ermöglicht es Ihnen, auf dem Jeedom Armaturenbrett Artyom zu integrieren und somit Spracherkennung auf den Jeedom Web-Seiten 
 
-Attention, Artyom utilise en sous jacent des fonctions de Chrome et ne fonctionne donc que sous ce navigateur (y compris version Android)
+Achtung, Artyom benutzt die grundlegenden Funktionen von Chrome und funktionieren also nur unter diesem Browser (einschließlich der Android-Version)
 
 La reconnaissance vocale est alors utilisée avec le moteur des interactions Jeedom directement et le retour lu par le plugin

@@ -1,5 +1,5 @@
 [panel,danger]
-.Je n'arrive pas à discuter avec Jeedom
+.Ich kann nicht mit Jeedom reden
 --
-Il faut bien utiliser Chrome en navigateur
+Man muss wirklich den Chrom Browser benutzen.
 --

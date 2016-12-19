@@ -1,5 +1,5 @@
-==== Configuration du plugin
+==== Plugin Konfiguration
 
-Le plugin n'a pas de configuration générale
+Das Plugin hat keine allgemeine Konfiguration
 
-Il faut créer un équipement qui servira à placer le widget où l'on souhaite sur le dashboard mais aussi à paramétrer le mot clef déclencheur et la langue
+Man muss eine Gerät erstellen, das dazu dienen wird, das Widget zu platzieren, wo man es auf dem Armaturenbrett wünscht, aber auch das einstellen vom Auslöse-Schlüsselwort und die Sprache 
