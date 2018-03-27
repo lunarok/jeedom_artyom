@@ -1,5 +1,0 @@
-==== The plugin configuration
-
-The plugin does not have general configuration.
-
-It is necessary to create a device that will be used to place the widget where you want on the dashboard but also to set the trigger keyword and the language

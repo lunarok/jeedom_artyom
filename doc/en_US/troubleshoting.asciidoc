@@ -1,5 +1,0 @@
-[panel,danger]
-.I can not talk to Jeedom
---
-Let's use only Chrome as browser
---

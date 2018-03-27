@@ -1,5 +1,0 @@
-[panel,primary]
-.Stützt sich das Plugin auf APIs Dritter ?
---
-Ja, es nutzt Google Spracherkennung und Google Sprach Synthetiser, die grundlegenden Funktionen von Chrome.
---

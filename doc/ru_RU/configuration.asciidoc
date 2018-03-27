@@ -1,5 +1,0 @@
-==== Configuration du plugin
-
-Le plugin n'a pas de configuration générale
-
-Il faut créer un équipement qui servira à placer le widget où l'on souhaite sur le dashboard mais aussi à paramétrer le mot clef déclencheur et la langue

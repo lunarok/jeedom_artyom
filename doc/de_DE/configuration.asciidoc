@@ -1,5 +1,0 @@
-==== Plugin Konfiguration
-
-Das Plugin hat keine allgemeine Konfiguration
-
-Man muss eine Gerät erstellen, das dazu dienen wird, das Widget zu platzieren, wo man es auf dem Armaturenbrett wünscht, aber auch das einstellen vom Auslöse-Schlüsselwort und die Sprache 

@@ -1,5 +1,0 @@
-[panel,primary]
-. Is the plugin relies on third-party API?
---
-Yes it uses Google Speech Recognition and Google Speech Synthesizer underlying Chrome functions.
---

@@ -1,5 +1,0 @@
-[panel,danger]
-.Je n'arrive pas à discuter avec Jeedom
---
-Il faut bien utiliser Chrome en navigateur
---

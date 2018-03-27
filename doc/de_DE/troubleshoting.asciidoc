@@ -1,5 +1,0 @@
-[panel,danger]
-.Ich kann nicht mit Jeedom reden
---
-Man muss wirklich den Chrom Browser benutzen.
---

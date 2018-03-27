@@ -4,5 +4,7 @@
 	"licence" : "AGPL",
 	"author" : "lunarok,oliviusdm",
 	"require" : "2.4",
-	"category" : "communication"
+	"category" : "communication",
+    "changelog" : "https://lunarok.github.io/jeedom_docs/plugins/artyom/changelog.html",
+    "documentation" : "https://lunarok.github.io/jeedom_docs/plugins/artyom/"
 }
