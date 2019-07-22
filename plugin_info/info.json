@@ -4,7 +4,7 @@
 	"description" : "Permet d'activer la reconnaissance vocale depuis le dashboard de Jeedom. Les interactions seront automatiquement utilisées en réponse. La reconnaissance se fait en javascript en utilisant les services Google disponible sur Google Chrome.",
 	"licence" : "AGPL",
 	"author" : "lunarok,oliviusdm",
-	"require" : "2.4",
+	"require" : "3.3.24",
 	"category" : "communication",
 	"language" : ["fr_FR","en_US"],
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
